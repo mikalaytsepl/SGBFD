@@ -1,6 +1,7 @@
 #!/bin/bash
+cd "/OFIQ-Project/scripts/"
 
-sh "$HOME/OFIQ-Project/scripts/conformance_tests.sh"
+sh "conformance_tests.sh"
 rc=$?
 
 if [ $rc -eq 0 ]; then

@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
 # Create the target directory inside the clean runtime image
 WORKDIR /OFIQ-Project
 
+
 # copying only stuff needed (test later, maybe I can chop even more stuff off)
 COPY --from=builder /OFIQ-Project/build/                ./build/
 COPY --from=builder /OFIQ-Project/cmake/                ./cmake/
@@ -36,4 +37,11 @@ COPY --from=builder /OFIQ-Project/OFIQlib/              ./OFIQlib/
 COPY --from=builder /OFIQ-Project/scripts/              ./scripts/
 COPY --from=builder /OFIQ-Project/testing/              ./testing/
 
-ENTRYPOINT [ "sh", "./scripts/selftest.sh" ]
+# adding selftest and evaluation to the scripts after the directory has been overwritten
+COPY build_scripts/selftest.sh ./scripts
+
+# RUN [ "/usr/bin/bash", "./scripts/selftest.sh" ]
+
+COPY experiment_scripts/dataset_eval.sh ./scripts
+
+ENTRYPOINT [ "/usr/bin/bash", "./scripts/dataset_eval.sh" ]
