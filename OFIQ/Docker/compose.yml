@@ -1,0 +1,10 @@
+services: 
+  ofiq:
+    container_name: ofiq-base-container
+    image: ofiq-multibase-build-recursive:1.3
+    restart: on-failure
+    environment:
+      DATASET_TO_USE: "filtered_dataset_ferret_3" # empty for now, testing
+    volumes: 
+      - ./dataset-eval-in:/OFIQ-Project/dataset-in
+      - ./dataset-eval-out:/OFIQ-Project/dataset-out
