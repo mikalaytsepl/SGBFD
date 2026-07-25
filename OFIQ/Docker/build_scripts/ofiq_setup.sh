@@ -6,8 +6,9 @@ echo "=== INSTALLING DEPENDENCIES ==="
 apt-get update && \
 apt-get install build-essential python3-pip cmake python3.12-venv git -y
 
+# overwriting the name to OFIQ-project to not rewrite other stuff
 echo "=== CLONING OFIQ ==="
-git clone "https://github.com/BSI-OFIQ/OFIQ-Project"
+git clone "https://github.com/mikalaytsepl/OFIQ-Project-Recursive.git" OFIQ-Project
 
 echo "=== CREATING VENV AND INSTALLING CONAN 2.18.1 ==="
 python3 -m venv py_ofiq_env && \

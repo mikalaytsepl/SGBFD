@@ -40,7 +40,7 @@ COPY --from=builder /OFIQ-Project/testing/              ./testing/
 # adding selftest and evaluation to the scripts after the directory has been overwritten
 COPY build_scripts/selftest.sh ./scripts
 
-# RUN [ "/usr/bin/bash", "./scripts/selftest.sh" ]
+RUN [ "/usr/bin/bash", "./scripts/selftest.sh" ]
 
 COPY experiment_scripts/dataset_eval.sh ./scripts
 
