@@ -1,9 +1,16 @@
 import json
-import re
 import pandas as pd
 
 
 class OFIQEval:
+
+    @staticmethod
+    def _trim_filename_path(path: str) -> str:
+        """Keep only dataset/identity/file from a longer relative path."""
+        parts = [part for part in str(path).split("/") if part not in ("", ".")]
+        if len(parts) >= 3:
+            return "/".join(parts[-3:])
+        return "/".join(parts)
 
     def __init__(self, csv_path: str):
         self.csv_path = csv_path
@@ -38,9 +45,9 @@ class OFIQEval:
         top_k_df = sorted_df.groupby("identity").head(k)
 
         # Structure as: { "00768": ["path/1.jpg", "path/2.jpg"], ... }
-        result_dict = (
-            top_k_df.groupby("identity")["Filename"].apply(list).to_dict()
-        )
+        result_dict = top_k_df.groupby("identity")["Filename"].apply(
+            lambda series: [self._trim_filename_path(path) for path in series]
+        ).to_dict()
 
         # Save to JSON for downstream scripts
         with open(output_json_path, "w") as f:
@@ -48,4 +55,6 @@ class OFIQEval:
 
         return result_dict
 
-        
+
+test_eval = OFIQEval("/home/miko/diploma_thing/OFIQ/Docker/dataset-eval-out/filtered_dataset_ferret_3.csv")
+test_eval.export_top_k_json(k=3, output_json_path="testing.json")
