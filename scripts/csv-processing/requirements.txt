@@ -1,0 +1,6 @@
+azure-functions
+pandas
+azure-storage-file-share
+json
+argparse 
+shutil
