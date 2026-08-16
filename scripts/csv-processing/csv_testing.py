@@ -21,7 +21,7 @@ class OFIQEval:
         if len(parts) >= 2:
             return parts[1]
         else:
-            ValueError(f"Invalid file path: {filepath}. Expected at least 2 segments in the path.")
+            raise ValueError(f"Invalid file path: {filepath}. Expected at least 2 segments in the path.")
 
     def __init__(self, csv_path: str):
         self.csv_path = csv_path
@@ -83,7 +83,6 @@ class OFIQEval:
                     print(f"[WARN] Missing source: {orig_path}")
                     continue
 
-                shutil.copy2(orig_path, dest_path)
                 shutil.copy2(orig_path, dest_path)
 
 test_eval = OFIQEval("/home/miko/diploma_thing/OFIQ/Docker/dataset-eval-out/filtered_dataset_ferret_3.csv")
