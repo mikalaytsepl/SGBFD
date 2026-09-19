@@ -33,7 +33,7 @@ resource "random_string" "runtime-random-suffix" {
 # variables to weak later, basically omitting the compose file
 variable "dataset-to-use" {
     type        = string
-    default     = "" # just change the default if you have multiple things in the input volume laying around
+    default     = "HR_128_normalized" # just change the default if you have multiple things in the input volume laying around
     description = "Dataset directory which's identities are going to be accessed, have to be specfied if there's more then 1 dataset"
 }
 

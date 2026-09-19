@@ -77,9 +77,9 @@ def filter_dataset(
 
 
 filter_dataset(
-    datapath="Datasets/VGGFace2/",
-    outputpath="Datasets/VGGFace2_filtered_5/",
+    datapath="Datasets/HR_128_normalized/",
+    outputpath="Datasets/HR_128_normalized_filtered_5/",
     threshold=5,
     quantity_per_identity=5,
-    max_deviation=15
+    max_deviation=30
 )

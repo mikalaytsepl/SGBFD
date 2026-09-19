@@ -1,0 +1,28 @@
+__pycache__
+.gitignore
+
+OFIQ/OFIQ-Project
+
+# adding python packaged directories to the list as scripts would have it obviously
+scripts/dataset_filter_fa/.python_packages
+
+# datasets out the window
+Datasets
+
+# OFIQ docker in and out volumes 
+OFIQ/Docker/dataset-eval-in/
+OFIQ/Docker/dataset-eval-out/
+
+# testing stuff 
+test.py
+testing.json
+
+.vscode
+
+# mordiff as it's nested repo
+morphing_models/MorDIFF
+
+# Terraform-generated files and local state
+.terraform/
+*.tfstate
+*.tfstate.*

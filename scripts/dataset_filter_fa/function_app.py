@@ -97,7 +97,7 @@ class OFIQEval:
 def extract_subset(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("Starting dataset subset extraction")
     try: 
-        dataset_to_filter = "/mnt/dataset-out/filtered_dataset_ferret_3.csv"
+        dataset_to_filter = "/mnt/dataset-out/HR_128_normalized.csv"
         out_path = "/mnt/subset-out"
         dataset_root = "/mnt/dataset-data"
 
