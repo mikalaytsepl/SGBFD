@@ -1,10 +1,10 @@
 services: 
   ofiq:
     container_name: ofiq-base-container
-    image: ofiq-multibase-build-recursive:1.3
+    image: mikalaytsepl/ofiq-multibase-build-recursive:1.3
     restart: on-failure
     environment:
-      DATASET_TO_USE: "vggface2_112x112_normalized" # empty for now, testing
+      DATASET_TO_USE: "VGGFace2_filtered_10_first300" # empty for now, testing
     volumes: 
-      - ./dataset-eval-in:/home/mikalay/diploma_thing/Datasets/
-      - ./dataset-eval-out:/dataset-out
+      - /home/mikalay/diploma_thing/Datasets/:/OFIQ-Project/dataset-in
+      - /home/mikalay/diploma_thing/Datasets/datasets-out:/OFIQ-Project/dataset-out
