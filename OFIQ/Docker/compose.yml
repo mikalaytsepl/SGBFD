@@ -4,7 +4,7 @@ services:
     image: mikalaytsepl/ofiq-multibase-build-recursive:1.3
     restart: on-failure
     environment:
-      DATASET_TO_USE: "VGGFace2_filtered_10_first300" # empty for now, testing
+      DATASET_TO_USE: "ferret_filtered_jpg" # empty for now, testing
     volumes: 
       - /home/mikalay/diploma_thing/Datasets/:/OFIQ-Project/dataset-in
       - /home/mikalay/diploma_thing/Datasets/datasets-out:/OFIQ-Project/dataset-out
